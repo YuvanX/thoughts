@@ -55,7 +55,7 @@ const BlogComponent = () => {
                   </CardContent>
                   <CardFooter className="flex justify-between">
                     <p className="text-sm text-muted-foreground">{Math.ceil(blog.content.split(/\s+/).length / 200)} min read</p>
-                    <Button>Read More</Button>
+                    <Link to={`/blog/${blog.id}`}><Button>Read More</Button></Link>
                   </CardFooter>
                 </Card>
               ))}
