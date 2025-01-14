@@ -3,6 +3,7 @@ import BlogPage from "@/components/BlogPage";
 import { BACKEND_URL } from "@/config";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import DetailedBlogPageSkeleton from "@/components/skeletons/DetailedBlogPage";
 
 type Blog = {
   id: string;
@@ -20,6 +21,7 @@ const DetailedBlogPage = () => {
     title: "",
     content: "",
   });
+  const [loading, setLoading] = useState(true)
 
   const { id } = useParams();
 
@@ -31,6 +33,7 @@ const DetailedBlogPage = () => {
         },
       });
       setBlog(res.data.post);
+      setLoading(false)
     };
     fetch();
   }, [id]);
@@ -38,12 +41,14 @@ const DetailedBlogPage = () => {
 
   return (
     <div>
+      {loading ? <DetailedBlogPageSkeleton/> : <div>
       <BlogPage
         id={blog.id}
         author={blog.author.name}
         title={blog.title}
         content={blog.content}
       />
+    </div>}
     </div>
   );
 };

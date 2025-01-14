@@ -3,10 +3,11 @@ import {Link} from "react-router-dom"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Button } from "./ui/button"
-import { useEffect, useState } from "react"
 import axios from "axios"
+import { useEffect, useState } from "react"
 import { BACKEND_URL } from "@/config"
 import { stripHtml } from "@/utils/htmlParser"
+import BlogPageSkeleton from "./skeletons/BlogPageSkeleton"
 
 type Blog = {
     id: string;
@@ -19,6 +20,7 @@ type Blog = {
 const BlogComponent = () => {
 
       const [blogs, setBlogs] = useState<Blog[]>([]);
+      const [loading, setLoading] = useState(true)
 
       useEffect(() => {
         const fetch = async () => {
@@ -27,12 +29,13 @@ const BlogComponent = () => {
                 Authorization: "Bearer " + localStorage.getItem("token")
             }})
             setBlogs(res.data.blogs)
+            setLoading(false)
         }
         fetch()
       }, [])
       
       return (
-        <div className="min-h-screen bg-background px-10 lg:px-20  ">
+        <div>{loading ? <BlogPageSkeleton/> : <div className="min-h-screen bg-background px-10 lg:px-20  ">
           <main className="container py-8">
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {blogs.map((blog) => (
@@ -61,7 +64,8 @@ const BlogComponent = () => {
               ))}
             </div>
           </main>
-        </div>
+        </div>}</div>
+        
       )
 }
 
