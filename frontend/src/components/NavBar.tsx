@@ -1,8 +1,8 @@
 import { RiBox2Fill } from "@remixicon/react";
 import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ModeToggle } from "./mode-toggle";
 import { useNavigate } from "react-router-dom";
+import DropDownMenu from "./DropDownMenu";
 
 const NavBar = () => {
   const navigate = useNavigate()
@@ -12,17 +12,15 @@ const NavBar = () => {
         <div>
           <RiBox2Fill />
         </div>
-        <div className="font-space font-semibold text-xl">Thoughts</div>
+        <div onClick={() => navigate('/blogs')} className="font-space font-semibold text-xl cursor-pointer">Thoughts</div>
       </div>
       <div className="flex items-center gap-5 pr-10 lg:pr-20">
-        <div>
-          <Button onClick={() => navigate('/newpost')}>New post</Button>
-        </div>
-        <Avatar>
-          <AvatarImage src="https://github.com/shadcn.png" />
-          <AvatarFallback>CN</AvatarFallback>
-        </Avatar>
+        
+        <DropDownMenu/>
         <ModeToggle/>
+        <div>
+          <Button className="font-space" onClick={() => navigate('/newpost')}>New post</Button>
+        </div>
       </div>
     </div>
   );
