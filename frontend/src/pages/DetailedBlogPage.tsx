@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import DetailedBlogPageSkeleton from "@/components/skeletons/DetailedBlogPage";
 import NavBar from "@/components/NavBar";
+import ArrowButton from "@/components/Arrow";
 
 type Blog = {
   id: string;
@@ -46,7 +47,8 @@ const DetailedBlogPage = () => {
     <div>
       <NavBar/>
       <div>
-      {loading ? <DetailedBlogPageSkeleton/> : <div className="pt-28">
+      {loading ? <DetailedBlogPageSkeleton/> : <div className="pt-16">
+        <div className="mt-10 ml-4 lg:ml-20 mb-5"><ArrowButton/></div>
       <BlogPage
         id={blog.id}
         author={blog.author.name}

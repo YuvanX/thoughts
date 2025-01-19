@@ -6,7 +6,6 @@ const Blogs = () => {
   return (
     <div>
       <NavBar />
-
       <BlogComponent />
     </div>
   );

@@ -1,4 +1,4 @@
-import NavBar from "@/components/NavBar";
+import ArrowButton from "@/components/Arrow";
 import UserBlogComponent from "@/components/UserBlogComponent";
 import UserHeader from "@/components/UserHeader";
 import { BACKEND_URL } from "@/config";
@@ -30,8 +30,15 @@ const UserBlogsPage = () => {
     fetch();
   }, []);
 
+  if(!userBlogs) {
+    return <div className="w-full mt-28 flex justify-center items-center">
+    <div>No Blogs avaliable...</div>
+  </div>
+  }
+
   return (
     <div>
+      <div className="mt-10 ml-4 lg:ml-20 mb-5"><ArrowButton/></div>
       <UserHeader setBlog={setUserBlogs} />
       <div>
         {userBlogs.length > 0 ? (

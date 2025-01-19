@@ -14,6 +14,8 @@ import { useNavigate } from "react-router-dom"
 import axios from "axios"
 import { BACKEND_URL } from "@/config"
 
+import ArrowButton from "./Arrow"
+
 export function SignUpForm({
   className,
   ...props
@@ -37,7 +39,8 @@ export function SignUpForm({
     navigate("/blogs")
   }
   return (
-    <div className={cn("flex flex-col gap-6", className)} {...props}>
+    <div>
+      <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card>
         <CardHeader>
           <CardTitle className="text-2xl">Create an Account</CardTitle>
@@ -94,6 +97,7 @@ export function SignUpForm({
           </form>
         </CardContent>
       </Card>
+    </div>
     </div>
   )
 }
