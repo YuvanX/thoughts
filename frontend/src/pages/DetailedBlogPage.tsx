@@ -4,6 +4,7 @@ import { BACKEND_URL } from "@/config";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import DetailedBlogPageSkeleton from "@/components/skeletons/DetailedBlogPage";
+import NavBar from "@/components/NavBar";
 
 type Blog = {
   id: string;
@@ -41,7 +42,9 @@ const DetailedBlogPage = () => {
 
   return (
     <div>
-      {loading ? <DetailedBlogPageSkeleton/> : <div>
+      <NavBar/>
+      <div>
+      {loading ? <DetailedBlogPageSkeleton/> : <div className="pt-28">
       <BlogPage
         id={blog.id}
         author={blog.author.name}
@@ -49,6 +52,7 @@ const DetailedBlogPage = () => {
         content={blog.content}
       />
     </div>}
+    </div>
     </div>
   );
 };

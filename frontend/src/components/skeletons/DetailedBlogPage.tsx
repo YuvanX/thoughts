@@ -13,7 +13,7 @@ const DetailedBlogPageSkeleton = () => {
   }
 
   return (
-    <div className="flex justify-center pt-10 overflow-y-scroll">
+    <div className="flex justify-center overflow-y-scroll pt-32">
       <div className="max-w-3xl min-w-[350px] md:min-w-[500px] lg:min-w-[600px] px-4">
         <h1 className="text-4xl font-bold">
           <Skeleton className="w-[350px] md:w-[500px] lg:w-[600px] h-5" />
