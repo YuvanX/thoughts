@@ -13,6 +13,7 @@ type Blog = {
   };
   title: string;
   content: string;
+  createdAt: string;
 };
 
 const DetailedBlogPage = () => {
@@ -21,6 +22,7 @@ const DetailedBlogPage = () => {
     author: { name: "" },
     title: "",
     content: "",
+    createdAt: ""
   });
   const [loading, setLoading] = useState(true)
 
@@ -50,6 +52,7 @@ const DetailedBlogPage = () => {
         author={blog.author.name}
         title={blog.title}
         content={blog.content}
+        createdAt={blog.createdAt}
       />
     </div>}
     </div>

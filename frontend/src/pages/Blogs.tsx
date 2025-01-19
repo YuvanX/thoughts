@@ -1,17 +1,15 @@
-import BlogComponent from "@/components/BlogComponent"
-import BreadCrump from "@/components/BreadCrump"
+import BlogComponent from "@/components/BlogComponent";
 
-import NavBar from "@/components/NavBar"
+import NavBar from "@/components/NavBar";
 
-
- const Blogs = () => {
+const Blogs = () => {
   return (
     <div>
-      <NavBar/>
-      <BreadCrump/>
-      <BlogComponent/>
-    </div>
-  )
-}
+      <NavBar />
 
-export default Blogs
+      <BlogComponent />
+    </div>
+  );
+};
+
+export default Blogs;

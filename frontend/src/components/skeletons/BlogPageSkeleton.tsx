@@ -33,7 +33,7 @@ const BlogPageSkeleton = () => {
     },
   ];
   return (
-    <div className="min-h-screen bg-background px-10 lg:px-20  ">
+    <div className="min-h-screen bg-background px-10 lg:px-20  pt-28">
       <main className="container py-8">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {blogs.map((blog) => {

@@ -1,4 +1,4 @@
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
@@ -8,15 +8,18 @@ import { useEffect, useState } from "react"
 import { BACKEND_URL } from "@/config"
 import { stripHtml } from "@/utils/htmlParser"
 import BlogPageSkeleton from "./skeletons/BlogPageSkeleton"
+import { dateFormattertoHyphen } from "@/utils/Timestamp"
 
 type Blog = {
     id: string;
     title: string;
     content: string;
+    createdAt: string;
     author: {
         name: string;
     }
 }
+
 const BlogComponent = () => {
 
       const [blogs, setBlogs] = useState<Blog[]>([]);
@@ -35,7 +38,7 @@ const BlogComponent = () => {
       }, [])
       
       return (
-        <div>{loading ? <BlogPageSkeleton/> : <div className="min-h-screen bg-background px-10 lg:px-20  ">
+        <div>{loading ? <BlogPageSkeleton/> : <div className="min-h-screen bg-background px-10 lg:px-20 pt-28 ">
           <main className="container py-8">
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {blogs.map((blog) => (
@@ -48,7 +51,7 @@ const BlogComponent = () => {
                       </Avatar>
                       <div>
                         <p className="text-sm font-medium">{blog.author.name}</p>
-                        <p className="text-sm text-muted-foreground">25-05-05</p>
+                        <p className="text-sm text-muted-foreground">{dateFormattertoHyphen(blog.createdAt)}</p>
                       </div>
                     </div>
                   </CardHeader>

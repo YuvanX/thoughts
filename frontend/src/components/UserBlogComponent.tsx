@@ -2,15 +2,18 @@ import { stripHtml } from "@/utils/htmlParser";
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import { CalendarDays } from "lucide-react";
+import { dateFormattertoHyphen } from "@/utils/Timestamp";
 
 const UserBlogComponent = ({
   title,
   content,
   id,
+  createdAt   
 }: {
   title: string;
   content: string;
   id: string;
+  createdAt: string;
 }) => {
   return (
     <div className="w-full flex flex-col  border rounded-lg h-60 p-4 relative">
@@ -22,7 +25,7 @@ const UserBlogComponent = ({
         <div className="flex justify-between items-center pt-4">
           <div className="font-light text-sm  flex items-center gap-1">
             <CalendarDays className="mr-2 h-4 w-4" />
-            <div>25/05/2005</div>
+            <div>{dateFormattertoHyphen(createdAt)}</div>
           </div>
           <Link to={`/blog/${id}`}>
             <Button>Read More</Button>

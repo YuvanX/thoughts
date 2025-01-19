@@ -1,3 +1,4 @@
+
 import UserBlogComponent from "@/components/UserBlogComponent";
 import UserHeader from "@/components/UserHeader";
 import { BACKEND_URL } from "@/config";
@@ -7,6 +8,7 @@ type UserBlogs = {
   id: string;
   title: string;
   content: string;
+  createdAt: string;
   author: {
     name: string;
   };
@@ -30,6 +32,7 @@ const UserBlogsPage = () => {
 
   return (
     <div>
+      
       <UserHeader setBlog={setUserBlogs} />
       <div>
         {userBlogs.length > 0 ? (
@@ -39,6 +42,7 @@ const UserBlogsPage = () => {
                 <UserBlogComponent
                   title={blogs.title}
                   content={blogs.content}
+                  createdAt={blogs.createdAt}
                   key={blogs.id}
                   id={blogs.id}
                 />
