@@ -14,7 +14,6 @@ import { useNavigate } from "react-router-dom"
 import axios from "axios"
 import { BACKEND_URL } from "@/config"
 
-import ArrowButton from "./Arrow"
 
 export function SignUpForm({
   className,

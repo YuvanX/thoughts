@@ -6,13 +6,11 @@ import { useMemo } from "react";
 import { timeStamp } from "@/utils/Timestamp";
 
 const BlogPage = ({
-  id,
   author,
   content,
   title,
   createdAt
 }: {
-  id: string;
   author: string;
   content: string;
   title: string;

@@ -17,7 +17,7 @@ const EditorPage = () => {
   const [content, setContent] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const [isPublishing, setIsPublishing] = useState(false);
+  const [, setIsPublishing] = useState(false);
 
   async function handlePublish() {
     setError("");
@@ -36,7 +36,7 @@ const EditorPage = () => {
       return;
     }
     try {
-      const res = await axios.post(
+       await axios.post(
         `${BACKEND_URL}/api/v1/blog`,
         {
           title: title,

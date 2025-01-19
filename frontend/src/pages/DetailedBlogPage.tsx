@@ -8,7 +8,6 @@ import NavBar from "@/components/NavBar";
 import ArrowButton from "@/components/Arrow";
 
 type Blog = {
-  id: string;
   author: {
     name: string;
   };
@@ -19,7 +18,6 @@ type Blog = {
 
 const DetailedBlogPage = () => {
   const [blog, setBlog] = useState<Blog>({
-    id: "",
     author: { name: "" },
     title: "",
     content: "",
@@ -50,7 +48,6 @@ const DetailedBlogPage = () => {
       {loading ? <DetailedBlogPageSkeleton/> : <div className="pt-16">
         <div className="mt-10 ml-4 lg:ml-20 mb-5"><ArrowButton/></div>
       <BlogPage
-        id={blog.id}
         author={blog.author.name}
         title={blog.title}
         content={blog.content}

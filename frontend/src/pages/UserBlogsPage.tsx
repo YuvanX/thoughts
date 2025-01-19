@@ -15,7 +15,6 @@ type UserBlogs = {
 };
 const UserBlogsPage = () => {
   const [userBlogs, setUserBlogs] = useState<UserBlogs[]>([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetch = async () => {
@@ -25,7 +24,6 @@ const UserBlogsPage = () => {
         },
       });
       setUserBlogs(res.data.userBlogs);
-      setLoading(false);
     };
     fetch();
   }, []);
