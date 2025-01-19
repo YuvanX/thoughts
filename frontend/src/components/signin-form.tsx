@@ -31,6 +31,7 @@ export function LoginForm({
       });
       const token = res.data.token;
       localStorage.setItem("token", token);
+      localStorage.setItem("name", res.data.name)
       navigate("/blogs")
     } catch (err) {
       console.error("Sign up failed:", err);

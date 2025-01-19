@@ -6,7 +6,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import { useNavigate } from "react-router-dom";
 
 const DropDownMenu = () => {
@@ -14,17 +13,16 @@ const DropDownMenu = () => {
   return (
       <DropdownMenu>
         <DropdownMenuTrigger>
-          <Avatar>
-            <AvatarImage src="A"/>
-            <AvatarFallback className="text-white">CN</AvatarFallback>
-          </Avatar>
+          <div className="w-9 h-9 flex text-white font-semibold font-space text-sm justify-center items-center bg-customColor rounded-full">
+            <div>{localStorage.getItem("name")?.[0]}</div>
+          </div>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="mt-1.5">
           <DropdownMenuLabel>My Account</DropdownMenuLabel>
           <DropdownMenuSeparator />
-          <DropdownMenuItem>Profile</DropdownMenuItem>
           <DropdownMenuItem onClick={() => navigate('/userblogs')}>My blogs</DropdownMenuItem>
           <DropdownMenuItem onClick={() => navigate('/settings')}>Settings</DropdownMenuItem>
+          <DropdownMenuItem onClick={() => {localStorage.removeItem("token"); navigate('/home')}}>Logout</DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
 

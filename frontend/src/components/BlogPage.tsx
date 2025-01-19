@@ -28,13 +28,13 @@ const BlogPage = ({
       <div className="max-w-3xl min-w-[350px] md:min-w-[500px] lg:min-w-[600px] px-4">
         <h1 className="text-4xl font-bold">{title}</h1>
         <div className="flex items-center gap-4 mt-6">
-          <Avatar className="w-10 h-10 rounded-full  bg-purple-700 flex justify-center items-center">
+          <Avatar className="w-10 h-10 rounded-full text-white  bg-customColor flex justify-center items-center">
             <AvatarFallback>{author[0]}</AvatarFallback>
           </Avatar>
           <div className="font-semibold">
             <div>{author}</div>
-            <div className="font-light text-sm flex items-center gap-1 text-white">
-              <CalendarIcon className="mr-1 h-4 w-4" />
+            <div className="font-light text-sm flex items-center gap-1 dark:text-white">
+              <CalendarIcon className="mr-1 h-4 w-4 " />
               {timeStamp(createdAt)}
             </div>
           </div>

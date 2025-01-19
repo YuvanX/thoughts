@@ -33,6 +33,7 @@ export function SignUpForm({
     })
     const token = res.data.token
     localStorage.setItem("token", token)
+    localStorage.setItem("name", res.data.name)
     navigate("/blogs")
   }
   return (

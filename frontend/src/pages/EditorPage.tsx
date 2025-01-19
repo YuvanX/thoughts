@@ -65,7 +65,7 @@ const EditorPage = () => {
           <div className="flex justify-between w-[800px] items-center">
             <div className="flex gap-5 items-center">
               <div>
-                <Avatar className="bg-gray-400 items-center justify-center">
+                <Avatar className="bg-customColor text-white items-center justify-center">
                   <AvatarImage src="lol" />
                   <AvatarFallback>Y</AvatarFallback>
                 </Avatar>
@@ -75,7 +75,7 @@ const EditorPage = () => {
                 <div className="text-xs">Draft in Yuvan</div>
               </div>
             </div>
-            <Button onClick={handlePublish}>Publish</Button>
+            <Button  onClick={handlePublish}>Publish</Button>
           </div>
         </div>
         <div className="flex justify-center">

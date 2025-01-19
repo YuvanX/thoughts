@@ -49,11 +49,14 @@ module.exports = {
   				'3': 'hsl(var(--chart-3))',
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
-  			}
+  			},
+			customColor: '#7b39ed'
   		},
 		fontFamily: {
 			'space': ['Space Grotesk', 'serif'],
-		}
+		},
+		
+		
   	}
   },
   plugins: [require("tailwindcss-animate")],
