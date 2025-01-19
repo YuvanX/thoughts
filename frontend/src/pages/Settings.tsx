@@ -56,8 +56,8 @@ const Settings = () => {
     if(newPassword !== confirmPassword) {
       setError('New passwords do not match')
       setSuccess('')
-    } else if(newPassword.length < 5) {
-      setError('New password must be at least 5 characters long')
+    } else if(newPassword.length < 6) {
+      setError('New password must be at least 6 characters long')
     } else {
       setError('')
       await axios.post(`${BACKEND_URL}/api/v1/user/settings`, {

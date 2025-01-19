@@ -35,7 +35,7 @@ export function LoginForm({
       navigate("/blogs")
     } catch (err) {
       console.error("Sign up failed:", err);
-      alert("Sign up failed. Please try again.");
+      alert("Sign in failed. Please try again.");
     }
   }
   

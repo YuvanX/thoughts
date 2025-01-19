@@ -1,4 +1,4 @@
-
+import NavBar from "@/components/NavBar";
 import UserBlogComponent from "@/components/UserBlogComponent";
 import UserHeader from "@/components/UserHeader";
 import { BACKEND_URL } from "@/config";
@@ -32,7 +32,6 @@ const UserBlogsPage = () => {
 
   return (
     <div>
-      
       <UserHeader setBlog={setUserBlogs} />
       <div>
         {userBlogs.length > 0 ? (
@@ -50,7 +49,9 @@ const UserBlogsPage = () => {
             })}
           </div>
         ) : (
-         <div className="w-full mt-28 flex justify-center items-center"><div>No Blogs avaliable...</div></div>
+          <div className="w-full mt-28 flex justify-center items-center">
+            <div>No Blogs avaliable...</div>
+          </div>
         )}
       </div>
     </div>

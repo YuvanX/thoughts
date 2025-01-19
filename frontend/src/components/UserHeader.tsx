@@ -78,7 +78,7 @@ const UserHeader = ({
   return (
     <div className="flex flex-col items-center h-56 mt-28">
       <div className="w-20 h-20 bg-customColor rounded-full flex items-center justify-center text-xl mb-5">
-        <span>Y</span>
+        <span className="font-space text-3xl">{localStorage.getItem("name")?.[0]}</span>
       </div>
 
       <div className="text-center">
