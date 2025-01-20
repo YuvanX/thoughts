@@ -33,14 +33,14 @@ const BlogPageSkeleton = () => {
     },
   ];
   return (
-    <div className="min-h-screen bg-background px-10 lg:px-20 pt-28">
+    <div className="min-h-screen bg-background px-5 md:px-10 lg:px-20 pt-28">
       <main className="container py-8">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {blogs.map((blog) => {
             return (
               <Card key={blog.id} className="flex flex-col">
                 <CardHeader>
-                  <div className="flex items-center space-x-4 ">
+                  <div className="flex items-center space-x-2 lg:space-x-4">
                     <Avatar className="h-8 w-8">
                       <AvatarFallback>
                         <Skeleton className="w-10 h-10 rounded-full" />
