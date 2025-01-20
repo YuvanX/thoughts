@@ -22,7 +22,7 @@ const BlogPage = ({
   }), [content])
 
   return (
-    <div className="flex justify-center overflow-y-scroll">
+    <div className="flex justify-center  overflow-y-scroll">
       <div className="max-w-3xl min-w-[350px] md:min-w-[500px] lg:min-w-[600px] px-4">
         <h1 className="text-4xl font-bold">{title}</h1>
         <div className="flex items-center gap-4 mt-6">

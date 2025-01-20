@@ -21,9 +21,9 @@ const DetailedBlogPage = () => {
     author: { name: "" },
     title: "",
     content: "",
-    createdAt: ""
+    createdAt: "",
   });
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
 
   const { id } = useParams();
 
@@ -35,7 +35,7 @@ const DetailedBlogPage = () => {
         },
       });
       setBlog(res.data.post);
-      setLoading(false)
+      setLoading(false);
     };
     fetch();
   }, [id]);
@@ -43,18 +43,24 @@ const DetailedBlogPage = () => {
 
   return (
     <div>
-      <NavBar/>
-      <div>
-      {loading ? <DetailedBlogPageSkeleton/> : <div className="pt-16 h-screen">
-        <div className="mt-10 ml-4 lg:ml-20 mb-5"><ArrowButton/></div>
-      <BlogPage
-        author={blog.author.name}
-        title={blog.title}
-        content={blog.content}
-        createdAt={blog.createdAt}
-      />
-    </div>}
-    </div>
+      <NavBar />
+      <div className="flex-grow">
+        {loading ? (
+          <DetailedBlogPageSkeleton />
+        ) : (
+          <div className="pt-16 flex flex-col min-h-screen overflow-y-auto m-0 p-0">
+            <div className="mt-10 ml-4 lg:ml-20 mb-5">
+              <ArrowButton />
+            </div>
+            <BlogPage
+              author={blog.author.name}
+              title={blog.title}
+              content={blog.content}
+              createdAt={blog.createdAt}
+            />
+          </div>
+        )}
+      </div>
     </div>
   );
 };

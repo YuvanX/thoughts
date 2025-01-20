@@ -60,4 +60,11 @@ module.exports = {
   	}
   },
   plugins: [require("tailwindcss-animate"), require('daisyui')],
+  daisyui: {
+    themes: false, // Disable all themes
+    base: false, // Disable global styles
+    utils: false, // Disable utility classes
+    logs: false, // Disable logs in the console
+    rtl: false, // Disable right-to-left support
+  },
 }

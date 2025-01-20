@@ -28,15 +28,19 @@ const UserBlogsPage = () => {
     fetch();
   }, []);
 
-  if(!userBlogs) {
-    return <div className="w-full mt-28 flex justify-center items-center">
-    <div>No Blogs avaliable...</div>
-  </div>
+  if (!userBlogs) {
+    return (
+      <div className="w-full mt-28 flex justify-center items-center">
+        <div>No Blogs avaliable...</div>
+      </div>
+    );
   }
 
   return (
-    <div>
-      <div className="mt-10 ml-4 lg:ml-20 mb-5"><ArrowButton/></div>
+    <div className="min-h-screen flex flex-col">
+      <div className="mt-10 ml-4 lg:ml-20 mb-5">
+        <ArrowButton />
+      </div>
       <UserHeader setBlog={setUserBlogs} />
       <div>
         {userBlogs.length > 0 ? (
