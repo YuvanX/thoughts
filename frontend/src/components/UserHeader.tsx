@@ -85,9 +85,12 @@ const UserHeader = ({
         <div className="text-3xl font-bold mb-2">{localStorage.getItem("name")}</div>
         <div className="font-light text-gray-500">@{localStorage.getItem("name")?.toLowerCase()}</div>
       </div>
+      <div>
+        
+      </div>
       <Input
         onChange={handleEvent}
-        className="w-96 mt-5"
+        className="w-72 lg:w-96 mt-5"
         placeholder="Search blogs..."
         aria-label="Search blogs"
       />
