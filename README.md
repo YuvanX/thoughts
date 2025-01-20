@@ -37,7 +37,7 @@ Make sure you have the following installed:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/thoughts.git
+   git clone https://github.com/YuvanX/thoughts.git
    cd thoughts
    ```
 2. Install the backend dependencies:
