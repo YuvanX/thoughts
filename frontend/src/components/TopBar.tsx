@@ -13,7 +13,7 @@ const TopBar = () => {
   }
 
   return (
-    <div className="w-full flex justify-between bg-white dark:bg-black h-20 items-center fixed z-50 px-5 lg:px-20">
+    <div className="w-full flex justify-between bg-white dark:bg-black h-20 items-center fixed z-50 px-5 md:px-10 lg:px-20">
       
       <div className="flex gap-2 items-center">
         <div>
@@ -23,7 +23,7 @@ const TopBar = () => {
       </div>
 
       
-      <div className="lg:hidden pr-10">
+      <div className="lg:hidden pr-5">
         <button onClick={handleToggle} aria-label="Toggle Menu">
           {hamburger ? <RiCloseFill size={24} /> : <RiMenuFill size={24} />}
         </button>
