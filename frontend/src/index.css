@@ -1,15 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Space+Grotesk:wght@300..700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-html, body {
-  @apply m-0 p-0 text-white h-full;
-  
-}
-#root {
-  @apply min-h-screen;
-}
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -70,7 +64,7 @@ html, body {
 
 @layer base {
   html, body {
-    @apply h-full m-0 p-0;
+    @apply h-full m-0 p-0 font-space;
   }
   * {
     @apply border-border;

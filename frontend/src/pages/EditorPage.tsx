@@ -3,7 +3,6 @@ import TipTap from "@/components/TipTap";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Avatar } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { BACKEND_URL } from "@/config";
 import { AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import axios from "axios";
@@ -36,7 +35,7 @@ const EditorPage = () => {
       return;
     }
     try {
-       await axios.post(
+      await axios.post(
         `${BACKEND_URL}/api/v1/blog`,
         {
           title: title,
@@ -67,24 +66,36 @@ const EditorPage = () => {
               <div>
                 <Avatar className="bg-customColor text-white items-center justify-center">
                   <AvatarImage src="lol" />
-                  <AvatarFallback>{localStorage.getItem("name")?.[0]}</AvatarFallback>
+                  <AvatarFallback>
+                    {localStorage.getItem("name")?.[0]}
+                  </AvatarFallback>
                 </Avatar>
               </div>
               <div>
                 <div>{localStorage.getItem("name")}</div>
-                <div className="text-xs">{`Draft in ${localStorage.getItem("name")}`}</div>
+                <div className="text-xs">{`Draft in ${localStorage.getItem(
+                  "name"
+                )}`}</div>
               </div>
             </div>
-            <Button className="min-w-20"  onClick={handlePublish}>{isPublishing ? <span className="loading loading-dots loading-md"></span> : "Publish"}</Button>
+            <Button className="min-w-20" onClick={handlePublish}>
+              {isPublishing ? (
+                <span className="loading loading-dots loading-md"></span>
+              ) : (
+                "Publish"
+              )}
+            </Button>
           </div>
         </div>
         <div className="flex justify-center">
           <div className="w-[800px] space-y-6">
-            <Input
-              className="!text-4xl !shadow-none !font-bold !border-none !px-0 focus-visible:ring-0 mt-6"
+            <textarea
+              className="w-full text-4xl bg-background font-bold border-none px-0 shadow-none resize-none focus:ring-0 focus:outline-none mt-6 overflow-x-hidden overflow-y-hidden"
               placeholder="Title"
               onChange={(e) => setTitle(e.target.value)}
               value={title}
+              rows={2} 
+              maxLength={100} 
             />
             <TipTap onContentChange={setContent} />
           </div>
