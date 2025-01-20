@@ -38,13 +38,13 @@ const BlogComponent = () => {
       }, [])
       
       return (
-        <div>{loading ? <BlogPageSkeleton/> : <div className="min-h-screen bg-background px-10 lg:px-20 pt-28 ">
+        <div>{loading ? <BlogPageSkeleton/> : <div className="min-h-screen bg-background px-5 md:px-10 lg:px-20 pt-28 ">
           <main className="container py-8">
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {blogs.map((blog) => (
                 <Card key={blog.id} className="flex flex-col">
                   <CardHeader>
-                    <div className="flex items-center space-x-4 ">
+                    <div className="flex items-center space-x-2 lg:space-x-4 ">
                       <Avatar className="h-8 w-8 ">
                         <AvatarImage  src={blog.author.name[0]} alt={blog.author.name[0]} />
                         <AvatarFallback className="bg-customColor text-white">{blog.author.name[0]}</AvatarFallback>
@@ -56,8 +56,8 @@ const BlogComponent = () => {
                     </div>
                   </CardHeader>
                   <CardContent className="flex-1">
-                    <h2 className="text-xl font-semibold mb-2">{blog.title}</h2>
-                    <p className="text-muted-foreground">{stripHtml((blog.content))}</p>
+                    <h2 className="text-xl font-semibold mb-2 line-clamp-2">{blog.title}</h2>
+                    <p className="text-muted-foreground line-clamp-3">{stripHtml((blog.content))}</p>
                   </CardContent>
                   <CardFooter className="flex justify-between">
                     <p className="text-sm text-muted-foreground">{Math.ceil(blog.content.split(/\s+/).length / 200)} min read</p>
