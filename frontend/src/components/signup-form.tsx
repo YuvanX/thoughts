@@ -23,19 +23,33 @@ export function SignUpForm({
   const [email, setEmail] = useState("")
   const [username,setUsername] = useState("");
   const [password,setPassword] = useState("");
+  const [loader, setLoader] = useState(false);
+  const [error, setError] = useState<string | null>(null)
   const navigate = useNavigate()
   
   async function sendRequest(event: React.FormEvent) {
     event.preventDefault()
-    const res = await axios.post(`${BACKEND_URL}/api/v1/user/signup`, {
-      email,
-      name: username,
-      password
-    })
-    const token = res.data.token
-    localStorage.setItem("token", token)
-    localStorage.setItem("name", res.data.name)
-    navigate("/blogs")
+    if(loader) return
+
+    setLoader(true)
+    setError(null)
+    try {
+
+      const res = await axios.post(`${BACKEND_URL}/api/v1/user/signup`, {
+        email,
+        name: username,
+        password
+      })
+      setLoader(false)
+      const token = res.data.token
+      localStorage.setItem("token", token)
+      localStorage.setItem("name", res.data.name)
+      navigate("/blogs")
+    } catch(e: any) {
+      setError(e.response?.data?.message || "Something went wrong. Please try again.")
+    } finally {
+      setLoader(false)
+    }
   }
   return (
     <div>
@@ -81,8 +95,10 @@ export function SignUpForm({
                 }} required />
               </div>
               <Button  type="submit" className="w-full">
-               Sign up
+              {loader ? <span className="loading loading-dots loading-md"></span> : "Sign up"}
+
               </Button>
+              {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
               
             </div>
             <div className="mt-4 text-center text-sm">

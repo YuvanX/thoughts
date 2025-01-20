@@ -45,7 +45,7 @@ const DetailedBlogPage = () => {
     <div>
       <NavBar/>
       <div>
-      {loading ? <DetailedBlogPageSkeleton/> : <div className="pt-16">
+      {loading ? <DetailedBlogPageSkeleton/> : <div className="pt-16 h-screen">
         <div className="mt-10 ml-4 lg:ml-20 mb-5"><ArrowButton/></div>
       <BlogPage
         author={blog.author.name}

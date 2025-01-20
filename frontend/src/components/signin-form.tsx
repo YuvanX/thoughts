@@ -20,25 +20,36 @@ export function LoginForm({
 }: React.ComponentPropsWithoutRef<"div">) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loader, setLoader] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
-  
+
   async function sendRequest(event: React.FormEvent) {
     event.preventDefault();
+    if (loader) return;
+
+    setLoader(true);
+    setError(null);
     try {
       const res = await axios.post(`${BACKEND_URL}/api/v1/user/signin`, {
         email,
         password,
       });
+      setLoader(false);
       const token = res.data.token;
       localStorage.setItem("token", token);
-      localStorage.setItem("name", res.data.name)
-      navigate("/blogs")
-    } catch (err) {
-      console.error("Sign up failed:", err);
-      alert("Sign in failed. Please try again.");
+      localStorage.setItem("name", res.data.name);
+      navigate("/blogs");
+    } catch (e: any) {
+      setError(
+        e.response?.data?.message || "Something went wrong. Please try again."
+      );
+      
+    } finally {
+      setLoader(false);
     }
   }
-  
+
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card>
@@ -77,12 +88,10 @@ export function LoginForm({
                   required
                 />
               </div>
-              <Button
-                type="submit"
-                className="w-full"
-              >
-                Login
+              <Button type="submit" className="w-full">
+                {loader ? <span className="loading loading-dots loading-md"></span> : "Login"}
               </Button>
+              {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
             </div>
             <div className="mt-4 text-center text-sm">
               Don't have an Account?{" "}

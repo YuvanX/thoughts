@@ -17,7 +17,7 @@ const EditorPage = () => {
   const [content, setContent] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const [, setIsPublishing] = useState(false);
+  const [isPublishing, setIsPublishing] = useState(false);
 
   async function handlePublish() {
     setError("");
@@ -58,7 +58,7 @@ const EditorPage = () => {
     }
   }
   return (
-    <div>
+    <div className="bg-background h-screen bottom-0">
       <NavBar />
       <div className="p-4">
         <div className="flex justify-center mb-6 mt-28">
@@ -67,15 +67,15 @@ const EditorPage = () => {
               <div>
                 <Avatar className="bg-customColor text-white items-center justify-center">
                   <AvatarImage src="lol" />
-                  <AvatarFallback>Y</AvatarFallback>
+                  <AvatarFallback>{localStorage.getItem("name")?.[0]}</AvatarFallback>
                 </Avatar>
               </div>
               <div>
-                <div>Yuvan</div>
-                <div className="text-xs">Draft in Yuvan</div>
+                <div>{localStorage.getItem("name")}</div>
+                <div className="text-xs">{`Draft in ${localStorage.getItem("name")}`}</div>
               </div>
             </div>
-            <Button  onClick={handlePublish}>Publish</Button>
+            <Button className="min-w-20"  onClick={handlePublish}>{isPublishing ? <span className="loading loading-dots loading-md"></span> : "Publish"}</Button>
           </div>
         </div>
         <div className="flex justify-center">
